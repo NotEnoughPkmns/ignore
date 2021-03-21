@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  Echo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Linter
+      run: eslint . --resolve-plugins-relative-to /usr/local/lib
